@@ -24,6 +24,8 @@ opt.swapfile = false          -- don't use swapfile
 -- Neovim UI
 -----------------------------------------------------------
 opt.number = true             -- show line number
+opt.numberwidth = 3
+opt.ruler = true
 opt.showmatch = true          -- highlight matching parenthesis
 opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
 opt.colorcolumn = '80'        -- line lenght marker at 80 columns
@@ -97,6 +99,18 @@ cmd [[
     autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline
     autocmd TermOpen * startinsert
     autocmd BufLeave term://* stopinsert
+]]
+
+-- undo
+cmd [[
+  if has('persistent_undo')
+    " undo files
+    let vim_data_path=stdpath('data')
+    exec 'set undodir='.vim_data_path.'/tmp/undo//'
+    set undofile
+    set undolevels=3000
+    set undoreload=10000
+  endif
 ]]
 
 -----------------------------------------------------------

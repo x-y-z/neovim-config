@@ -11,7 +11,9 @@
 
 
 local fn = vim.fn
+local g = vim.g         				-- global variables
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
@@ -85,6 +87,26 @@ return require('packer').startup(function()
     config = function ()
         require'alpha'.setup(require'alpha.themes.dashboard'.opts)
     end
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = function ()
+      require('bufferline').setup()
+    end
+  }
+
+  use {
+    'myusuf3/numbers.vim',
+  }
+
+  use {
+    'lfv89/vim-interestingwords'
+  }
+
+  use {
+    'vim-scripts/YankRing.vim'
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
