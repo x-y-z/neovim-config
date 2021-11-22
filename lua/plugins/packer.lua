@@ -109,6 +109,13 @@ return require('packer').startup(function()
     'vim-scripts/YankRing.vim'
   }
 
+  use {
+    'Yggdroot/LeaderF',
+    run = function()
+        vim.cmd[[:LeaderfInstallCExtension]]
+    end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
