@@ -88,3 +88,9 @@ map('', '<leader>fd', ':<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", ex
 map('', '<leader>fo', ':<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>', default_opts)
 map('', '<leader>fn', ':<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>', default_opts)
 map('', '<leader>fp', ':<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>', default_opts)
+
+map('n', '<leader>#', '<Plug>NERDCommenterToggle', {})
+map('v', '<leader>#', '<Plug>NERDCommenterToggle', {})
+
+-- Quick editing
+map('n', '<leader>ev', '<C-w>s<C-w>j:e $MYVIMRC<cr>', default_opts)
