@@ -4,7 +4,7 @@ g['Lf_HideHelp'] = 1
 g['Lf_UseCache'] = 0
 g['Lf_UseVersionControlTool'] = 0
 g['Lf_IgnoreCurrentBufferName'] = 1
-g['Lf_StlSeparator'] = { left = "\\ue0b0", right = "\\ue0b2", font = "DejaVu Sans Mono for Powerline" }
+g['Lf_StlSeparator'] = { left = "\u{e0b0}", right = "\u{e0b2}", font = "DejaVu Sans Mono for Powerline" }
 g['Lf_PreviewResult'] = {Function = 0, BufTag = 0 }
 g['Lf_FollowLinks'] = 1
 
