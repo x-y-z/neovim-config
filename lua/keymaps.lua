@@ -7,6 +7,7 @@ local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 local cmd = vim.cmd
 local g = vim.g         				-- global variables
+local fn = vim.fn       				-- call Vim functions
 
 -----------------------------------------------------------
 -- Neovim shortcuts:
@@ -89,8 +90,36 @@ map('', '<leader>fo', ':<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><
 map('', '<leader>fn', ':<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>', default_opts)
 map('', '<leader>fp', ':<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>', default_opts)
 
+-- NERDCommenter
 map('n', '<leader>#', '<Plug>NERDCommenterToggle', {})
 map('v', '<leader>#', '<Plug>NERDCommenterToggle', {})
+
+-- coc
+local function check_back_space()
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+    return (col == 0 or vim.api.nvim_get_current_line():sub(col, col):match('%s')) and true
+end
+
+local function t(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+function _G.smart_tab()
+    return fn.pumvisible() == 1 and t'<C-n>' or (check_back_space() and t'<TAB>' or fn['coc#refresh']())
+end
+
+function _G.smart_s_tab()
+    return fn.pumvisible() == 1 and t'<C-p>' or t'<C-h>'
+end
+
+function _G.smart_enter()
+    return fn.pumvisible() == 1 and fn['coc#_select_confirm']() or vim.api.nvim_eval('<C-g>u<CR><c-r>=coc#on_enter()<CR>')
+end
+
+map('i', '<TAB>', 'v:lua.smart_tab()', {noremap = true, silent = true, expr = true})
+map('i', '<S-TAB>', 'v:lua.smart_s_tab()', {noremap = true, silent = true, expr = true})
+map('i', '<c-space>', 'coc#refresh()', {noremap = true, silent = true, expr = true})
+map('i', '<cr>', 'v:lua.smart_enter()', {noremap = true, silent = true, expr = true})
 
 -- Quick editing
 map('n', '<leader>ev', '<C-w>s<C-w>j:e $MYVIMRC<cr>', default_opts)

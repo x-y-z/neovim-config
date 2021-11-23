@@ -107,7 +107,11 @@ local comps = {
     },
     -- raw-column
     position = {
-      provider = {name = 'position'},
+      provider = function ()
+        local total_row_no = vim.api.nvim_buf_line_count(0)
+        local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return row .. '/' .. total_row_no .. ' ☰ ' .. col+1
+      end,
       hl = {
         fg = colors.cyan,
         style = 'bold'
@@ -198,7 +202,7 @@ table.insert(components.active, {})
 table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 
--- Right section
+-- Left Section
 table.insert(components.active[1], comps.vi_mode.left)
 table.insert(components.active[1], comps.file.info)
 table.insert(components.active[1], comps.git.branch)
@@ -207,7 +211,7 @@ table.insert(components.active[1], comps.git.change)
 table.insert(components.active[1], comps.git.remove)
 table.insert(components.inactive[1], comps.file.info)
 
--- Left Section
+-- Right section
 table.insert(components.active[2], comps.diagnos.err)
 table.insert(components.active[2], comps.diagnos.warn)
 table.insert(components.active[2], comps.diagnos.hint)
@@ -215,7 +219,6 @@ table.insert(components.active[2], comps.diagnos.info)
 table.insert(components.active[2], comps.lsp.name)
 table.insert(components.active[2], comps.file.os)
 table.insert(components.active[2], comps.file.line_percentage)
-table.insert(components.active[2], comps.file.position)
 
 -- call feline
 require('feline').setup {

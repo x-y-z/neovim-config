@@ -80,6 +80,12 @@ cmd [[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
 ]]
 
+-- gitcommit
+cmd [[
+    autocmd FileType gitcommit set tw=68 spell
+    autocmd FileType gitcommit setlocal foldmethod=manual
+]]
+
 -----------------------------------------------------------
 -- Autocompletion
 -----------------------------------------------------------

@@ -50,25 +50,14 @@ return require('packer').startup(function()
 
   use { 'rose-pine/neovim', as = 'rose-pine' }
 
-  -- LSP
-  use 'neovim/nvim-lspconfig'
-
-  -- autocomplete
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      'L3MON4D3/LuaSnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-buffer',
-      'saadparwaiz1/cmp_luasnip',
-    },
-  }
-
   -- statusline
   use {
-    'famiu/feline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    'bling/vim-airline'
+  }
+
+  -- git
+  use {
+    'tpope/vim-fugitive'
   }
 
   -- git labels
@@ -118,6 +107,11 @@ return require('packer').startup(function()
 
   use {
     'scrooloose/nerdcommenter'
+  }
+
+  use {
+    'neoclide/coc.nvim',
+    branch = 'release'
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
