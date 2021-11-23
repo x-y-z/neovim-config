@@ -83,6 +83,7 @@ map('', '<leader>fl', ':<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>', defau
 
 map('x', 'gf', ':<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>', default_opts)
 map('', 'go', ':<C-U>Leaderf! rg --recall<CR>', default_opts)
+map('n', '<leader>a', ':Leaderf rg ', default_opts)
 
 map('', '<leader>fr', ':<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>', default_opts)
 map('', '<leader>fd', ':<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>', default_opts)
