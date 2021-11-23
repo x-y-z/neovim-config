@@ -50,6 +50,15 @@ return require('packer').startup(function()
 
   use { 'rose-pine/neovim', as = 'rose-pine' }
 
+  use {
+    'tomasr/molokai',
+    as = 'molokai',
+    config = function ()
+      vim.cmd[[colorscheme molokai]]
+    end
+  }
+
+
   -- statusline
   use {
     'bling/vim-airline'
