@@ -13,6 +13,10 @@ local fn = vim.fn       				-- call Vim functions
 -- Neovim shortcuts:
 -----------------------------------------------------------
 
+-- neovim command
+map('c', '<c-a>', '<home>', {noremap = true})
+map('c', '<c-e>', '<end>', {noremap = true})
+
 -- clear search highlighting
 map('n', '<leader><space>', ':noh<CR>:call clearmatches()<CR>', default_opts)
 
