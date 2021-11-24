@@ -36,8 +36,16 @@ opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.linebreak = true          -- wrap on word boundary
 
 -- remove whitespace on save
-cmd [[au BufWritePre * :%s/\s\+$//e]]
+-- cmd [[au BufWritePre * :%s/\s\+$//e]]
 
+-- Only shown when not in insert mode so I don't go insane.
+cmd [[
+  augroup trailing
+      au!
+      au InsertEnter * :set listchars-=trail:␣
+      au InsertLeave * :set listchars+=trail:␣
+  augroup END
+]]
 
 -- highlight on yank
 exec([[
@@ -67,6 +75,13 @@ opt.expandtab = true      -- use spaces instead of tabs
 opt.shiftwidth = 4        -- shift 4 spaces when tab
 opt.tabstop = 4           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
+opt.list = true
+
+opt.listchars:append("tab:▸ ")
+opt.listchars:append("eol:¬")
+opt.listchars:append("extends:❯")
+opt.listchars:append("precedes:❮")
+opt.listchars:append("trail:␣")
 
 -- don't auto commenting new lines
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
@@ -77,6 +92,11 @@ cmd [[autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0]]
 -- 2 spaces for selected filetypes
 cmd [[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
+]]
+
+-- c
+cmd [[
+  autocmd FileType c set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 ]]
 
 -- gitcommit

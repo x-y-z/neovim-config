@@ -122,5 +122,8 @@ map('i', '<S-TAB>', 'v:lua.smart_s_tab()', {noremap = true, silent = true, expr 
 map('i', '<c-space>', 'coc#refresh()', {noremap = true, silent = true, expr = true})
 map('i', '<cr>', 'v:lua.smart_enter()', {noremap = true, silent = true, expr = true})
 
+-- remove trailing whitespace
+map('n', '<leader>w', ':%s/\\s\\+$//e<cr>', default_opts)
+
 -- Quick editing
 map('n', '<leader>ev', '<C-w>s<C-w>j:e $MYVIMRC<cr>', default_opts)
