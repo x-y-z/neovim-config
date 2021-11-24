@@ -67,7 +67,7 @@ map('v', '>', '>gv', default_opts)
 -- interestingwords
 map('n', '<leader>m', ':call InterestingWords("n")<cr>', default_opts)
 map('v', '<leader>m', ':call InterestingWords("v")<cr>', default_opts)
-map('n', '<leader>M', ':call UncolorAllWords<cr>', default_opts)
+map('n', '<leader>M', ':call UncolorAllWords()<cr>', default_opts)
 map('n', '<leader>mn', ':call WordNavigation(1)<cr>', default_opts)
 map('n', '<leader>mN', ':call WordNavigation(0)<cr>', default_opts)
 
