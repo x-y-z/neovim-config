@@ -104,7 +104,11 @@ return require('packer').startup(function()
   }
 
   use {
-    'vim-scripts/YankRing.vim'
+    'vim-scripts/YankRing.vim',
+    run = function ()
+      local yankring_dir = fn.stdpath('data')..'/tmp/yankring'
+      fn.system({'mkdir', yankring_dir})
+    end
   }
 
   use {

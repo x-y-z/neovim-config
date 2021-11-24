@@ -130,8 +130,9 @@ cmd [[
 cmd [[
   if has('persistent_undo')
     " undo files
-    let vim_data_path=stdpath('data')
-    exec 'set undodir='.vim_data_path.'/tmp/undo//'
+    let undo_path=stdpath('data').'/tmp/undo//'
+    call mkdir(undo_path, "p")
+    exec 'set undodir='.undo_path
     set undofile
     set undolevels=3000
     set undoreload=10000
