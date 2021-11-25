@@ -19,6 +19,7 @@ Based on: https://github.com/brainfucksec/neovim-lua
 require('plugins/packer')
 require('settings')
 require('keymaps')
+require('plugins/lualine')
 require('plugins/numbers')
 require('plugins/interestingwords')
 require('plugins/YankRing')

@@ -62,7 +62,8 @@ return require('packer').startup(function()
 
   -- statusline
   use {
-    'bling/vim-airline'
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   -- git
