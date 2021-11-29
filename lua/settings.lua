@@ -84,7 +84,7 @@ opt.listchars:append("precedes:❮")
 opt.listchars:append("trail:␣")
 
 -- don't auto commenting new lines
-cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
+-- cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 
 -- remove line lenght marker for selected filetypes
 cmd [[autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0]]

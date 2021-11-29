@@ -5,6 +5,7 @@
 
 local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
+local noremap_opt = { noremap = true}
 local cmd = vim.cmd
 local g = vim.g         				-- global variables
 local fn = vim.fn       				-- call Vim functions
@@ -65,8 +66,8 @@ map('n', '<leader>v', '<C-w>v<C-w>l', default_opts)
 map('n', '<leader>h', '<C-w>s<C-w>j', default_opts)
 
 -- Reselect visual block after indent/outdent
-map('v', '<', '<gv', default_opts)
-map('v', '>', '>gv', default_opts)
+map('v', '<', '<gv', noremap_opt)
+map('v', '>', '>gv', noremap_opt)
 
 -- interestingwords
 map('n', '<leader>m', ':call InterestingWords("n")<cr>', default_opts)
@@ -131,3 +132,32 @@ map('n', '<leader>w', ':%s/\\s\\+$//e<cr>', default_opts)
 
 -- Quick editing
 map('n', '<leader>ev', '<C-w>s<C-w>j:e $MYVIMRC<cr>', default_opts)
+
+-- change numbering or other extra display
+map('n', '<leader>ll', ':set invlist<cr>', {silent = true})
+map('n', '<leader>nn', ':set invnumber<cr>', {silent = true})
+map('n', '<leader>pp', ':set invpaste<cr>', {silent = true})
+map('n', '<leader>ii', ':set invrelativenumber<cr>', {silent = true})
+map('n', '<leader>hh', ':set invnumber<CR>:set invrelativenumber<CR>:set invlist<CR>', {silent = true})
+
+
+-- Don't jump when using * for search
+map('n', '*', '*<c-o>', noremap_opt)
+
+-- Keep search matches in the middle of the window.
+map('n', 'n', 'nzzzv', noremap_opt)
+map('n', 'N', 'Nzzzv', noremap_opt)
+
+-- Same when jumping around
+map('n', 'g;', 'g;zz', noremap_opt)
+map('n', 'g,', 'g,zz', noremap_opt)
+
+-- more natural movement with wrap on
+map('n', 'j', 'gj', noremap_opt)
+map('n', 'k', 'gk', noremap_opt)
+map('v', 'j', 'gj', noremap_opt)
+map('v', 'k', 'gk', noremap_opt)
+
+-- sane regexes
+map('n', '/', '/\\v', noremap_opt)
+map('v', '/', '/\\v', noremap_opt)

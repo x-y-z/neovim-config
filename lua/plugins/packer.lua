@@ -120,26 +120,36 @@ return require('packer').startup(function()
     end,
   }
 
+  -- comment
   use {
     'scrooloose/nerdcommenter'
   }
 
+  -- language server
   use {
     'neoclide/coc.nvim',
     branch = 'release'
   }
 
+  -- async make or other command
   use {
     'tpope/vim-dispatch'
   }
 
+  -- better vim menu
   use {
     'gelguy/wilder.nvim',
     requires = { 'romgrk/fzy-lua-native' }
   }
 
+  -- automatically ask sudo permission if file is not writable.
   use {
     'lambdalisue/suda.vim'
+  }
+
+  -- complete code block
+  use {
+    'tpope/vim-endwise'
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
