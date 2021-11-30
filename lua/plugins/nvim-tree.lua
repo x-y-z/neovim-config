@@ -14,7 +14,6 @@
 --- See: `help NvimTree`
 local g = vim.g
 
-g.nvim_tree_gitignore = 1
 g.nvim_tree_quit_on_open = 0
 g.nvim_tree_indent_markers = 1
 g.nvim_tree_git_hl = 1
@@ -42,4 +41,7 @@ require('nvim-tree').setup {
     dotfiles = true,
     custom = { '.git', 'node_modules', '.cache', '.bin' },
   },
+  git = {
+    ignore = 1,
+  }
 }
