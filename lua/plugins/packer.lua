@@ -98,7 +98,7 @@ return require('packer').startup(function()
   }
 
   use {
-    'myusuf3/numbers.vim',
+    'x-y-z/numbers.vim',
   }
 
   use {
