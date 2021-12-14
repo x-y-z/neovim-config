@@ -101,7 +101,7 @@ cmd [[
 
 -- gitcommit
 cmd [[
-    autocmd FileType gitcommit set tw=68 spell
+    autocmd FileType gitcommit set tw=75 spell colorcolumn=75
     autocmd FileType gitcommit setlocal foldmethod=manual
 ]]
 
