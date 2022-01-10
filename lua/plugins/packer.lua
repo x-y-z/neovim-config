@@ -169,6 +169,11 @@ return require('packer').startup(function()
     end
   }
 
+  -- new text surrounding targets, like da, for "ad, sdfads, saf"
+  use {
+    "wellle/targets.vim",
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
