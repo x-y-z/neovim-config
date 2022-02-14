@@ -106,11 +106,16 @@ return require('packer').startup(function()
   }
 
   use {
-    'vim-scripts/YankRing.vim',
-    run = function ()
-      local yankring_dir = fn.stdpath('data')..'/tmp/yankring'
-      fn.system({'mkdir', yankring_dir})
-    end
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      {'tami5/sqlite.lua', module = 'sqlite'},
+      {'nvim-telescope/telescope.nvim'},
+    },
+    config = function()
+      require('neoclip').setup({
+      enable_persistent_history = true,
+      })
+    end,
   }
 
   use {

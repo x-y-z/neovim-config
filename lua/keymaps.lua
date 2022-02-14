@@ -79,7 +79,7 @@ map('n', '<leader>mn', ':call WordNavigation(1)<cr>', default_opts)
 map('n', '<leader>mN', ':call WordNavigation(0)<cr>', default_opts)
 
 -- YankRing
-map('n', '<leader>y', ':YRShow<cr>', {})
+map('n', '<leader>y', ':lua require("telescope").extensions.neoclip.default()<cr>', {})
 
 -- LeaderF
 
