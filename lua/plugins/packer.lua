@@ -114,6 +114,9 @@ return require('packer').startup(function()
     config = function()
       require('neoclip').setup({
       enable_persistent_history = true,
+      on_paste = {
+        set_reg = true,
+      },
       })
     end,
   }
