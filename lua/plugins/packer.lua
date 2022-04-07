@@ -184,6 +184,11 @@ return require('packer').startup(function()
     "wellle/targets.vim",
   }
 
+  -- clang-format
+  use {
+    'rhysd/vim-clang-format',
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
