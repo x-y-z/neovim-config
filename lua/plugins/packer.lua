@@ -91,6 +91,7 @@ return require('packer').startup(function()
 
   use {
     'akinsho/bufferline.nvim',
+    branch = 'main',
     requires = {'kyazdani42/nvim-web-devicons'},
     config = function ()
       require('bufferline').setup()
@@ -167,6 +168,7 @@ return require('packer').startup(function()
 
   use {
     "akinsho/toggleterm.nvim",
+    branch = 'main'
   }
   -- highlight todo
   use {
