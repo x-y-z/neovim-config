@@ -46,10 +46,8 @@ map('n', '<leader>q', ':qa!<CR>', default_opts)
 -----------------------------------------------------------
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
--- open terminal
-map('n', '<C-t>', ':Term<CR>', { noremap = true })
 -- terminal normal mode
-map('t', '<C-[>', '<C-\\><C-n>', noremap_opt)
+map('t', '<Esc>', '<C-\\><C-n>', noremap_opt)
 
 -- nvim-tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
