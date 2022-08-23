@@ -120,7 +120,7 @@ end
 
 function _G.smart_enter()
     local npairs = require('nvim-autopairs')
-    npairs.setup()
+    npairs.setup({map_cr=false})
 
     if fn['coc#pum#visible']() ~= 0 then
         return fn['coc#pum#confirm']()
