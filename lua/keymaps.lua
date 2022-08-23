@@ -111,15 +111,23 @@ local function t(str)
 end
 
 function _G.smart_tab()
-    return fn.pumvisible() == 1 and t'<C-n>' or (check_back_space() and t'<TAB>' or fn['coc#refresh']())
+    return fn['coc#pum#visible']() and fn['coc#pum#next'](1) or (check_back_space() and t'<TAB>' or fn['coc#refresh']())
 end
 
 function _G.smart_s_tab()
-    return fn.pumvisible() == 1 and t'<C-p>' or t'<C-h>'
+    return fn['coc#pum#visible']() and fn['coc#pum#prev'](1) or t'<C-h>'
 end
 
 function _G.smart_enter()
-    return fn.pumvisible() == 1 and fn['coc#_select_confirm']() or vim.api.nvim_eval('<C-g>u<CR><c-r>=coc#on_enter()<CR>')
+    local npairs = require('nvim-autopairs')
+    npairs.setup()
+
+    if fn['coc#pum#visible']() ~= 0 then
+        return fn['coc#pum#confirm']()
+    else
+        return npairs.autopairs_cr()
+        -- return vim.api.nvim_eval('<C-g>u<CR><c-r>=coc#on_enter()<CR>') -- original coc
+    end
 end
 
 map('i', '<TAB>', 'v:lua.smart_tab()', {noremap = true, silent = true, expr = true})
