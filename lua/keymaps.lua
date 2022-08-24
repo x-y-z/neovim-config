@@ -110,21 +110,22 @@ local function t(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
--- function _G.smart_tab()
---     if fn['coc#pum#visible']() ~= 0 then
---         fn['coc#pum#next'](1)
---     else
---         if check_back_space() then
---           t'<TAB>'
---         else
---           fn['coc#refresh']()
---         end
---     end
---     -- return  and  or (check_back_space() and t'<TAB>' or fn['coc#refresh']())
--- end
+function _G.smart_tab()
+    if fn['coc#pum#visible']() ~= 0 then
+        return fn['coc#pum#next'](1)
+    elseif check_back_space() then
+        return t'<TAB>'
+    else
+        return fn['coc#refresh']()
+    end
+end
 
 function _G.smart_s_tab()
-    return fn['coc#pum#visible']() and fn['coc#pum#prev'](1) or t'<C-h>'
+    if fn['coc#pum#visible']() ~= 0 then
+        return fn['coc#pum#prev'](1)
+    else
+        return t'<C-h>'
+    end
 end
 
 function _G.smart_enter()
@@ -139,24 +140,24 @@ function _G.smart_enter()
     end
 end
 
--- map('i', '<TAB>', 'v:lua.smart_tab()', {noremap = true, silent = true, expr = true})
--- map('i', '<S-TAB>', 'v:lua.smart_s_tab()', {noremap = true, silent = false, expr = true})
+map('i', '<TAB>', 'v:lua.smart_tab()', {noremap = true, silent = true, expr = true})
+map('i', '<S-TAB>', 'v:lua.smart_s_tab()', {noremap = true, silent = false, expr = true})
 map('i', '<c-space>', 'coc#refresh()', {noremap = true, silent = true, expr = true})
 map('i', '<cr>', 'v:lua.smart_enter()', {noremap = true, silent = true, expr = true})
 
-cmd [[
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#pum#next(1):
-  \ CheckBackspace() ? "\<Tab>" :
-  \ coc#refresh()
-
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-]]
+-- cmd [[
+-- function! CheckBackspace() abort
+--   let col = col('.') - 1
+--   return !col || getline('.')[col - 1]  =~# '\s'
+-- endfunction
+--
+-- inoremap <silent><expr> <TAB>
+--   \ coc#pum#visible() ? coc#pum#next(1):
+--   \ CheckBackspace() ? "\<Tab>" :
+--   \ coc#refresh()
+--
+-- inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+-- ]]
 
 -- remove trailing whitespace
 map('n', '<leader>w', ':%s/\\s\\+$//e<cr>', default_opts)
