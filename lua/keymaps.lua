@@ -95,6 +95,7 @@ map('', '<leader>fd', ':<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", ex
 map('', '<leader>fo', ':<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>', default_opts)
 map('', '<leader>fn', ':<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>', default_opts)
 map('', '<leader>fp', ':<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>', default_opts)
+map('', '<leader>t', ':LeaderfFunction!<cr>', default_opts)
 
 -- NERDCommenter
 map('n', '<leader>#', '<Plug>NERDCommenterToggle', {})
