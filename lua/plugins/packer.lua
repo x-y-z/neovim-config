@@ -137,7 +137,7 @@ return require('packer').startup(function()
   -- language server
   use {
     'neoclide/coc.nvim',
-    branch = 'release'
+    tag = "*"
   }
 
   -- async make or other command
