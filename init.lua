@@ -16,7 +16,7 @@ Based on: https://github.com/brainfucksec/neovim-lua
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
-require('plugins/packer')
+require('plugins/pluginmanager')
 require('settings')
 require('keymaps')
 require('plugins/lualine')
