@@ -81,6 +81,7 @@ map('n', '<leader>y', ':lua require("telescope").extensions.neoclip.default()<cr
 
 -- LeaderF
 
+map('', '<leader>ff', ':LeaderfFile<CR>', default_opts)
 map('', '<leader>fb', ':<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>', default_opts)
 map('', '<leader>fm', ':<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>', default_opts)
 map('', '<leader>ft', ':<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>', default_opts)
