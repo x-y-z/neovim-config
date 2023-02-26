@@ -177,5 +177,13 @@ return require('lazy').setup({
 
   -- clang-format
   'rhysd/vim-clang-format',
+
+  --
+  {
+    'RRethy/vim-illuminate',
+    config = function()
+      require('illuminate').configure({})
+    end
+  }
 })
 
