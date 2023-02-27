@@ -138,7 +138,7 @@ return require('lazy').setup({
   -- language server
   {
     'neoclide/coc.nvim',
-    version = "*"
+    branch = 'release',
   },
 
   -- async make or other command
