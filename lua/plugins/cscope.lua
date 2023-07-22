@@ -1,9 +1,9 @@
-local opt = vim.opt         		-- global/buffer/windows-scoped options
+-- load cscope maps
+-- pass empty table to setup({}) for default options
+require('cscope_maps').setup({
+  disable_maps = false, -- true disables my keymaps, only :Cscope will be loaded
+  cscope = {
+    db_file = "./cscope.out", -- location of cscope db file
+  },
+})
 
-if io.open("cscope.out", "r") ~= nil then
-  opt.cscopetag = true
-  opt.csto = 0
-  opt.cscopeverbose = true
-
-  vim.cmd("cs add cscope.out")
-end

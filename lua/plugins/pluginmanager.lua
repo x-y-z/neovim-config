@@ -178,5 +178,8 @@ return require('lazy').setup({
   -- clang-format
   'rhysd/vim-clang-format',
 
+  -- cscope
+  'dhananjaylatkar/cscope_maps.nvim'
+
 })
 
