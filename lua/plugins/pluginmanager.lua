@@ -30,7 +30,10 @@ return require('lazy').setup({
   'kyazdani42/nvim-tree.lua',
 
   -- indent line
-  'lukas-reineke/indent-blankline.nvim',
+  {'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
+    opts = {}
+  },
 
   -- autopair
   {
