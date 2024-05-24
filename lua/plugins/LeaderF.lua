@@ -14,4 +14,4 @@ g['Lf_GtagsStoreInProject'] = 1
 g['Lf_GtagsAutoGenerate'] = 0
 g['Lf_Gtagslabel'] = 'native-pygments'
 
-g['Lf_RgConfig'] = {"--max-columns=150", "--type-add web:*.{html,css,js}*", "--glob=!git/*", "--hidden"}
+g['Lf_RgConfig'] = {"--max-columns=150", "--type-add 'web:*.{html,css,js}*'", "--glob=!git/*", "--hidden"}
