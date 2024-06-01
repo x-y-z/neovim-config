@@ -93,11 +93,6 @@ cmd [[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
 ]]
 
--- c
-cmd [[
-  autocmd FileType c set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-]]
-
 -- gitcommit
 cmd [[
     autocmd FileType gitcommit set tw=75 spell colorcolumn=75
