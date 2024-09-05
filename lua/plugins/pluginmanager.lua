@@ -182,7 +182,10 @@ return require('lazy').setup({
   'rhysd/vim-clang-format',
 
   -- cscope
-  'dhananjaylatkar/cscope_maps.nvim'
+  'dhananjaylatkar/cscope_maps.nvim',
+
+  -- diffview
+  'sindrets/diffview.nvim',
 
 })
 
