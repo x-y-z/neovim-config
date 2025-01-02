@@ -161,11 +161,13 @@ return require('lazy').setup({
 		init = function()
 			vim.g.coq_settings = {
 					auto_start = true, -- if you want to start COQ at startup
+					["display.statusline.helo"] = false,
 					-- Your COQ settings here
 			}
 		end,
 		config = function()
-      require'lspconfig'.clangd.setup{}
+			require'lspconfig'.clangd.setup{}
+			require'lspconfig'.pyright.setup{}
 			-- Your LSP settings here
 		end,
   },
