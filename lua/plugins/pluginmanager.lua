@@ -162,6 +162,7 @@ return require('lazy').setup({
 			vim.g.coq_settings = {
 					auto_start = true, -- if you want to start COQ at startup
 					["display.statusline.helo"] = false,
+					["keymap.jump_to_mark"] = "<c-m>"
 					-- Your COQ settings here
 			}
 		end,
