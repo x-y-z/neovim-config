@@ -7,7 +7,7 @@
 
 
 local fn = vim.fn
-local g = vim.g         				-- global variables
+local g = vim.g                 -- global variables
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -139,38 +139,57 @@ return require('lazy').setup({
   'scrooloose/nerdcommenter',
 
   -- language server
-	{
-		"neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
-		lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
-		dependencies = {
-			-- main one
-			{ "ms-jpq/coq_nvim", branch = "coq" },
+  {
+    "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
+    lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
+    dependencies = {
+      -- main one
+      { "ms-jpq/coq_nvim", branch = "coq" },
 
-			-- 9000+ Snippets
-			{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+      -- 9000+ Snippets
+      { "ms-jpq/coq.artifacts", branch = "artifacts" },
 
-			-- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
-			-- Need to **configure separately**
-			{ 'ms-jpq/coq.thirdparty', branch = "3p" }
-			-- - shell repl
-			-- - nvim lua api
-			-- - scientific calculator
-			-- - comment banner
-			-- - etc
-		},
-		init = function()
-			vim.g.coq_settings = {
-					auto_start = true, -- if you want to start COQ at startup
-					["display.statusline.helo"] = false,
-					["keymap.jump_to_mark"] = "<c-m>"
-					-- Your COQ settings here
-			}
-		end,
-		config = function()
-			require'lspconfig'.clangd.setup{}
-			require'lspconfig'.pyright.setup{}
-			-- Your LSP settings here
-		end,
+      -- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
+      -- Need to **configure separately**
+      { 'ms-jpq/coq.thirdparty', branch = "3p" }
+      -- - shell repl
+      -- - nvim lua api
+      -- - scientific calculator
+      -- - comment banner
+      -- - etc
+    },
+    init = function()
+      vim.g.coq_settings = {
+          auto_start = true, -- if you want to start COQ at startup
+          ["display.statusline.helo"] = false,
+          ["keymap.jump_to_mark"] = "<c-m>"
+          -- Your COQ settings here
+      }
+    end,
+    config = function()
+      require'lspconfig'.clangd.setup{}
+      require'lspconfig'.pyright.setup{}
+      -- Your LSP settings here
+    end,
+  },
+
+  -- formatter
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          -- Conform will run multiple formatters sequentially
+          python = { "black" },
+          -- You can customize some of the format options for the filetype (:help conform.format)
+          rust = { "rustfmt", lsp_format = "fallback" },
+          c = { "clang-format" },
+          cpp = { "clang-format" },
+        },
+      })
+    end,
   },
 
   -- async make or other command

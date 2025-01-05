@@ -146,3 +146,12 @@ map('n', '<C-]>e', ':cs find e <C-R>=expand("<cword>")<CR><CR>', {})
 map('n', '<C-]>f', ':cs find f <C-R>=expand("<cfile>")<CR><CR>', {})
 map('n', '<C-]>i', ':cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>', {})
 map('n', '<C-]>d', ':cs find d <C-R>=expand("<cword>")<CR><CR>', {})
+
+-- conform
+vim.keymap.set("v", "<leader>=", function()
+    require("conform").format()
+      -- Escape visual mode
+    vim.api.nvim_input("<esc>")
+  end,
+  { buffer = bufnr, remap = false, silent = true }
+)
