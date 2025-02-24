@@ -169,6 +169,7 @@ return require('lazy').setup({
     config = function()
       require'lspconfig'.clangd.setup{}
       require'lspconfig'.pyright.setup{}
+      require'lspconfig'.rust_analyzer.setup{}
       -- Your LSP settings here
     end,
   },
@@ -187,6 +188,11 @@ return require('lazy').setup({
           rust = { "rustfmt", lsp_format = "fallback" },
           c = { "clang-format" },
           cpp = { "clang-format" },
+        },
+        formatters = {
+          clang_format = {
+            prepend_args = { '--style=file', '--fallback-style=LLVM'},
+          },
         },
       })
     end,
