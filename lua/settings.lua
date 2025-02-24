@@ -82,6 +82,8 @@ opt.listchars:append("extends:❯")
 opt.listchars:append("precedes:❮")
 opt.listchars:append("trail:␣")
 
+opt.diffopt = "filler,internal,closeoff,algorithm:histogram,context:5,linematch:60"
+
 -- don't auto commenting new lines
 -- cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 

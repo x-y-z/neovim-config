@@ -226,14 +226,19 @@ return require('lazy').setup({
   -- new text surrounding targets, like da, for "ad, sdfads, saf"
   "wellle/targets.vim",
 
-  -- clang-format
-  'rhysd/vim-clang-format',
-
   -- cscope
   'dhananjaylatkar/cscope_maps.nvim',
 
   -- diffview
   'sindrets/diffview.nvim',
+
+  --leap
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').create_default_mappings()
+    end
+  }
 
 })
 
