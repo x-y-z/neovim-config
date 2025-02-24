@@ -217,8 +217,18 @@ return require('lazy').setup({
   'chrisbra/csv.vim',
 
   {
-    "akinsho/toggleterm.nvim",
-    branch = 'main'
+    "Dan7h3x/neaterm.nvim",
+    branch = "stable",
+    event = "VeryLazy",
+    opts = {
+      keymaps = {
+        new_horizontal = '<leader>t'
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "ibhagwan/fzf-lua",
+    },
   },
   -- highlight todo
   {
