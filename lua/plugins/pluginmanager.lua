@@ -273,11 +273,27 @@ return require('lazy').setup({
       },
       lazygit = {
         enabled = true,
-      }
+      },
+      input = {
+        enabled = true,
+      },
+      picker = {
+        enabled = true,
+      },
+      explorer = {
+        enabled = true,
+      },
     },
     keys = {
-    --- bufdelete
-      { "bd", function() Snacks.bufdelete() end, desc = "Buffer delete" },
+    -- find
+      { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+      { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+      { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+    --- search
+      { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+      { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+      { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
     --- LSF
       { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
       { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
@@ -288,6 +304,7 @@ return require('lazy').setup({
       { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
     --- Others
       { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+      { "<leader>bd", function() Snacks.bufdelete() end, desc = "Buffer delete" },
     },
   },
 
