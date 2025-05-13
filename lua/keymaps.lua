@@ -79,23 +79,6 @@ map('n', '<leader>mN', ':call WordNavigation(0)<cr>', default_opts)
 -- YankRing
 map('n', '<leader>y', ':lua require("telescope").extensions.neoclip.default()<cr>', {})
 
--- LeaderF
-
-map('', '<leader>fm', ':<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>', default_opts)
-map('', '<leader>ft', ':<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>', default_opts)
-map('', '<leader>fl', ':<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>', default_opts)
-
-map('x', 'gf', ':<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>', default_opts)
-map('', 'go', ':<C-U>Leaderf! rg --recall<CR>', default_opts)
-map('n', '<leader>a', ':Leaderf rg ', default_opts)
-
-map('', '<leader>fr', ':<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>', default_opts)
-map('', '<leader>fd', ':<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>', default_opts)
-map('', '<leader>fo', ':<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>', default_opts)
-map('', '<leader>fn', ':<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>', default_opts)
-map('', '<leader>fp', ':<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>', default_opts)
-map('', '<leader>t', ':LeaderfFunction!<cr>', default_opts)
-
 -- NERDCommenter
 map('n', '<leader>#', '<Plug>NERDCommenterToggle', {})
 map('v', '<leader>#', '<Plug>NERDCommenterToggle', {})

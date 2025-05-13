@@ -126,13 +126,6 @@ return require('lazy').setup({
     end,
   },
 
-  {
-    'Yggdroot/LeaderF',
-    build = function()
-        vim.cmd[[:LeaderfInstallCExtension]]
-    end,
-  },
-
   -- comment
   'scrooloose/nerdcommenter',
 
