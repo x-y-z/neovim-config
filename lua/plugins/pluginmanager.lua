@@ -158,9 +158,16 @@ return require('lazy').setup({
       }
     end,
     config = function()
-      require'lspconfig'.clangd.setup{}
-      require'lspconfig'.pyright.setup{}
-      require'lspconfig'.rust_analyzer.setup{}
+      local coq = require "coq"
+      vim.lsp.config('clangd', coq.lsp_ensure_capabilities({
+        cmd = {"clangd", "--header-insertion=never"}
+      }))
+      vim.lsp.enable('clangd')
+      vim.lsp.config('pyright', coq.lsp_ensure_capabilities({}))
+      vim.lsp.enable('pyright')
+      vim.lsp.config('rust_analyzer', coq.lsp_ensure_capabilities({}))
+      vim.lsp.enable('rust_analyzer')
+
       -- Your LSP settings here
     end,
   },
