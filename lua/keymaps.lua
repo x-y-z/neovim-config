@@ -118,16 +118,6 @@ map('v', 'k', 'gk', noremap_opt)
 map('n', '/', '/\\v', noremap_opt)
 map('v', '/', '/\\v', noremap_opt)
 
--- cscope
-map('n', '<C-]>s', ':cs find s <C-R>=expand("<cword>")<CR><CR>', {})
-map('n', '<C-]>g', ':cs find g <C-R>=expand("<cword>")<CR><CR>', {})
-map('n', '<C-]>c', ':cs find c <C-R>=expand("<cword>")<CR><CR>', {})
-map('n', '<C-]>t', ':cs find t <C-R>=expand("<cword>")<CR><CR>', {})
-map('n', '<C-]>e', ':cs find e <C-R>=expand("<cword>")<CR><CR>', {})
-map('n', '<C-]>f', ':cs find f <C-R>=expand("<cfile>")<CR><CR>', {})
-map('n', '<C-]>i', ':cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>', {})
-map('n', '<C-]>d', ':cs find d <C-R>=expand("<cword>")<CR><CR>', {})
-
 -- conform
 vim.keymap.set("v", "<leader>=", function()
     require("conform").format()
@@ -136,3 +126,7 @@ vim.keymap.set("v", "<leader>=", function()
   end,
   { buffer = bufnr, remap = false, silent = true }
 )
+
+-- lsp
+map('n', ']g', ':lua vim.diagnostic.jump({count=1, float=false})<cr>', noremap_opt)
+map('n', '[g', ':lua vim.diagnostic.jump({count=-1, float=false})<cr>', noremap_opt)
