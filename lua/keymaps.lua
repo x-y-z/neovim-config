@@ -130,3 +130,8 @@ vim.keymap.set("v", "<leader>=", function()
 -- lsp
 map('n', ']g', ':lua vim.diagnostic.jump({count=1, float=false})<cr>', noremap_opt)
 map('n', '[g', ':lua vim.diagnostic.jump({count=-1, float=false})<cr>', noremap_opt)
+
+map('n', 's', '<Plug>(leap)', default_opts)
+map('x', 's', '<Plug>(leap)', default_opts)
+map('o', 's', '<Plug>(leap)', default_opts)
+map('n', 'S', '<Plug>(leap-from-window)', default_opts)
