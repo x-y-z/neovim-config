@@ -315,7 +315,7 @@ return require('lazy').setup({
 
   --leap
   {
-    'ggandor/leap.nvim',
+    url = "https://codeberg.org/andyg/leap.nvim.git",
     config = function()
       require('leap')
     end
