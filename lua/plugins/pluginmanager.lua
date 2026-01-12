@@ -313,6 +313,12 @@ return require('lazy').setup({
   -- diffview
   'sindrets/diffview.nvim',
 
+  {
+    "esmuellert/codediff.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    cmd = "CodeDiff",
+  },
+
   --leap
   {
     url = "https://codeberg.org/andyg/leap.nvim.git",
