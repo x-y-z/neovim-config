@@ -53,7 +53,7 @@ return require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter',
     config = function ()
-      require('nvim-treesitter.configs').setup({
+      require('nvim-treesitter.config').setup({
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
       })
     end

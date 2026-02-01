@@ -6,7 +6,7 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
 
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.config').setup {
   highlight = {
     enable = true,
   },
