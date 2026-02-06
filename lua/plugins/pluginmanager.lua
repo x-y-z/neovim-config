@@ -52,8 +52,10 @@ return require('lazy').setup({
   -- treesitter interface
   {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate',
     config = function ()
-      require('nvim-treesitter.config').setup({
+      require('nvim-treesitter').setup({
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
       })
     end
