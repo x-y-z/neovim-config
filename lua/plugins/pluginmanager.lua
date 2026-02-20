@@ -93,6 +93,22 @@ return require('lazy').setup({
   },
 
   {
+    "NeogitOrg/neogit",
+    lazy = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+
+      "sindrets/diffview.nvim",
+
+      "folke/snacks.nvim",
+    },
+    cmd = "Neogit",
+    keys = {
+      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+    }
+  },
+
+  {
     'akinsho/bufferline.nvim',
     branch = 'main',
     dependencies = {'kyazdani42/nvim-web-devicons'},
@@ -413,7 +429,7 @@ return require('lazy').setup({
       { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
       { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
     --- Others
-      { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+      { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },
       { "<leader>bd", function() Snacks.bufdelete() end, desc = "Buffer delete" },
     },
   },
