@@ -356,6 +356,14 @@ return require('lazy').setup({
     end
   },
 
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "https://codeberg.org/mfussenegger/nvim-dap.git",
+      "nvim-neotest/nvim-nio"
+    },
+  },
+
   -- snacks
   {
     "folke/snacks.nvim",

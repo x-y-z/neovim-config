@@ -135,3 +135,12 @@ map('n', 's', '<Plug>(leap)', default_opts)
 map('x', 's', '<Plug>(leap)', default_opts)
 map('o', 's', '<Plug>(leap)', default_opts)
 map('n', 'S', '<Plug>(leap-from-window)', default_opts)
+
+-- dap
+vim.keymap.set("n", "<leader>dc", ":DapContinue<CR>", { desc = "Dap Continue" })
+vim.keymap.set("n", "<leader>dj", ":DapStepOver<CR>", { desc = "Dap Step Over" })
+vim.keymap.set("n", "<leader>dk", ":DapStepInto<CR>", { desc = "Dap Step Into" })
+vim.keymap.set("n", "<leader>dl", ":DapStepOut<CR>", { desc = "Dap Step Out" })
+vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Dap Toggle Breakpoint" })
+vim.keymap.set("n", "<leader>dr", ":DapToggleRepl<CR>", { desc = "Dap Toggle REPL" })
+
