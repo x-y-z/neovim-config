@@ -242,6 +242,7 @@ return require('lazy').setup({
           rust = { "rustfmt", lsp_format = "fallback" },
           c = { "clang-format" },
           cpp = { "clang-format" },
+          cuda = { "clang-format" },
         },
         formatters = {
           clang_format = {
