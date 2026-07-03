@@ -169,7 +169,6 @@ return require('lazy').setup({
     },
     init = function()
       vim.g.coq_settings = {
-          auto_start = true, -- if you want to start COQ at startup
           ["display.statusline.helo"] = false,
           ["keymap.jump_to_mark"] = "<c-m>"
           -- Your COQ settings here
@@ -177,13 +176,13 @@ return require('lazy').setup({
     end,
     config = function()
       local coq = require "coq"
-      vim.lsp.config('clangd', coq.lsp_ensure_capabilities({
+      vim.lsp.config('clangd', {
         cmd = {"clangd", "--header-insertion=never"}
-      }))
+      })
       vim.lsp.enable('clangd')
-      vim.lsp.config('pyright', coq.lsp_ensure_capabilities({}))
+      vim.lsp.config('pyright', {})
       vim.lsp.enable('pyright')
-      vim.lsp.config('rust_analyzer', coq.lsp_ensure_capabilities({}))
+      vim.lsp.config('rust_analyzer', {})
       vim.lsp.enable('rust_analyzer')
 
       -- Your LSP settings here
