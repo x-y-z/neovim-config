@@ -2,10 +2,6 @@
 -- Plugin manager configuration file
 -----------------------------------------------------------
 
--- Plugin manager: packer.nvim
--- https://github.com/wbthomason/packer.nvim
-
-
 local fn = vim.fn
 local g = vim.g                 -- global variables
 
@@ -149,6 +145,7 @@ return require('lazy').setup({
   {
     'nvim-mini/mini.comment',
     version = false,
+    event = "VeryLazy",
     opts = {
       mappings = {
         -- Toggle comment (like `gcip` - comment inner paragraph) for both
