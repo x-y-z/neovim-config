@@ -79,10 +79,6 @@ map('n', '<leader>mN', ':call WordNavigation(0)<cr>', default_opts)
 -- YankRing
 map('n', '<leader>y', ':lua require("telescope").extensions.neoclip.default()<cr>', {})
 
--- NERDCommenter
-map('n', '<leader>#', '<Plug>NERDCommenterToggle', {})
-map('v', '<leader>#', '<Plug>NERDCommenterToggle', {})
-
 -- remove trailing whitespace
 map('n', '<leader>w', ':%s/\\s\\+$//e<cr>', default_opts)
 
