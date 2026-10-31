@@ -5,6 +5,7 @@
 
 local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
+local silent_opts = { silent = true }
 local noremap_opt = { noremap = true}
 local cmd = vim.cmd
 local g = vim.g         				-- global variables
@@ -139,4 +140,15 @@ vim.keymap.set("n", "<leader>dk", ":DapStepInto<CR>", { desc = "Dap Step Into" }
 vim.keymap.set("n", "<leader>dl", ":DapStepOut<CR>", { desc = "Dap Step Out" })
 vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Dap Toggle Breakpoint" })
 vim.keymap.set("n", "<leader>dr", ":DapToggleRepl<CR>", { desc = "Dap Toggle REPL" })
+
+-- terminal
+-- Seamlessly exit terminal panels using Ctrl + direction
+map('t', '<C-h>', [[<C-\><C-n><C-w>h]], silent_opts)
+map('t', '<C-j>', [[<C-\><C-n><C-w>j]], silent_opts)
+map('t', '<C-k>', [[<C-\><C-n><C-w>k]], silent_opts)
+map('t', '<C-l>', [[<C-\><C-n><C-w>l]], silent_opts)
+
+-- simple zoom
+map('t', '<leader>z', [[<C-\><C-n>:SimpleZoomToggle<CR>]], silent_opts)
+map('n', '<leader>z', ':SimpleZoomToggle<CR>', silent_opts)
 

@@ -460,5 +460,24 @@ return require('lazy').setup({
     },
   },
 
+  -- harnt (AI)
+  {
+    "harnt.nvim",
+    url = "https://github.com/PieterPel/harnt.nvim",
+    opts = {},
+    -- optional: your own launch keymaps
+    -- keys = {
+    --   { "<leader>ac", "<cmd>Harnt open claude<cr>", desc = "harnt: Claude" },
+    --   { "<leader>ax", "<cmd>Harnt open codex<cr>",  desc = "harnt: Codex" },
+    --   { "<leader>ag", "<cmd>Harnt open antigravity<cr>", desc = "harnt: Antigravity" },
+    --   { "<leader>ao", "<cmd>Harnt open opencode<cr>", desc = "harnt: OpenCode" },
+    -- },
+  },
+
+  -- simple zoom
+  {
+    "fasterius/simple-zoom.nvim",
+    config = true,
+  },
 })
 
